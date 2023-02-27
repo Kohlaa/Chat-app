@@ -63,90 +63,92 @@ class _RegisterScreenState extends State<RegisterScreen>
             ),
             body: Form(
               key: formKey,
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextFormField(
-                      decoration: InputDecoration(labelText: 'First Name'),
-                      onChanged: (text) {
-                        firstName = text;
-                      },
-                      validator: (text) {
-                        if (text == null || text.trim().isEmpty) {
-                          return 'Please enter first name';
-                        }
-                        return null;
-                      },
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(labelText: 'Last Name'),
-                      onChanged: (text) {
-                        lastName = text;
-                      },
-                      validator: (text) {
-                        if (text == null || text.trim().isEmpty) {
-                          return 'Please enter last name';
-                        }
-                        return null;
-                      },
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(labelText: 'User Name'),
-                      onChanged: (text) {
-                        userName = text;
-                      },
-                      validator: (text) {
-                        if (text == null || text.trim().isEmpty) {
-                          return 'Please enter user name';
-                        }
-                        return null;
-                      },
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(labelText: 'Email'),
-                      onChanged: (text) {
-                        email = text;
-                      },
-                      validator: (text) {
-                        bool emailValid = RegExp(
-                                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                            .hasMatch(text!);
-                        if (text == null || text.trim().isEmpty) {
-                          return 'Please enter email';
-                        }
-                        if (!emailValid) {
-                          return 'Please enter a valid email';
-                        }
-                        return null;
-                      },
-                    ),
-                    TextFormField(
-                      decoration: InputDecoration(labelText: 'Password'),
-                      onChanged: (text) {
-                        password = text;
-                      },
-                      validator: (text) {
-                        if (text == null || text.trim().isEmpty) {
-                          return 'Please enter password';
-                        }
-                        if (text.length < 6) {
-                          return 'Password must be at least 6 chars.';
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    ElevatedButton(
-                        onPressed: () {
-                          validateForm();
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      TextFormField(
+                        decoration: InputDecoration(labelText: 'First Name'),
+                        onChanged: (text) {
+                          firstName = text;
                         },
-                        child: Text('Create Account'))
-                  ],
+                        validator: (text) {
+                          if (text == null || text.trim().isEmpty) {
+                            return 'Please enter first name';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(labelText: 'Last Name'),
+                        onChanged: (text) {
+                          lastName = text;
+                        },
+                        validator: (text) {
+                          if (text == null || text.trim().isEmpty) {
+                            return 'Please enter last name';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(labelText: 'User Name'),
+                        onChanged: (text) {
+                          userName = text;
+                        },
+                        validator: (text) {
+                          if (text == null || text.trim().isEmpty) {
+                            return 'Please enter user name';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(labelText: 'Email'),
+                        onChanged: (text) {
+                          email = text;
+                        },
+                        validator: (text) {
+                          bool emailValid = RegExp(
+                                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                              .hasMatch(text!);
+                          if (text == null || text.trim().isEmpty) {
+                            return 'Please enter email';
+                          }
+                          if (!emailValid) {
+                            return 'Please enter a valid email';
+                          }
+                          return null;
+                        },
+                      ),
+                      TextFormField(
+                        decoration: InputDecoration(labelText: 'Password'),
+                        onChanged: (text) {
+                          password = text;
+                        },
+                        validator: (text) {
+                          if (text == null || text.trim().isEmpty) {
+                            return 'Please enter password';
+                          }
+                          if (text.length < 6) {
+                            return 'Password must be at least 6 chars.';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            validateForm();
+                          },
+                          child: Text('Create Account'))
+                    ],
+                  ),
                 ),
               ),
             ),
